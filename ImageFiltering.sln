@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageFiltering.FunctionFilters", "src\ImageFiltering.FunctionFilters\ImageFiltering.FunctionFilters.csproj", "{6B9C40FE-D25A-49CC-9EB3-5A49C62C2746}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageFiltering.ConvolutionFilters", "src\ImageFiltering.ConvolutionalFilters\ImageFiltering.ConvolutionFilters.csproj", "{00D8148A-C329-4259-ADAA-75C1571ADDD6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageFiltering.Extensions", "src\ImageFiltering.Extensions\ImageFiltering.Extensions.csproj", "{1EFD49AB-5A74-4E25-9DEE-1C7A8FB012A7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageFiltering.Console", "src\ImageFiltering.Console\ImageFiltering.Console.csproj", "{B08A25E1-9A1F-4B40-B67A-438ABBDE0879}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageFiltering.Common", "src\ImageFiltering.Common\ImageFiltering.Common.csproj", "{6D9239D4-5743-4523-AEBC-0E9A6CCF6558}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageFiltering.UI", "src\ImageFiltering.UI\ImageFiltering.UI.csproj", "{BFEA1D2E-2FAE-489C-B355-4EC412B7B1C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B9C40FE-D25A-49CC-9EB3-5A49C62C2746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B9C40FE-D25A-49CC-9EB3-5A49C62C2746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B9C40FE-D25A-49CC-9EB3-5A49C62C2746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B9C40FE-D25A-49CC-9EB3-5A49C62C2746}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00D8148A-C329-4259-ADAA-75C1571ADDD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00D8148A-C329-4259-ADAA-75C1571ADDD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00D8148A-C329-4259-ADAA-75C1571ADDD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00D8148A-C329-4259-ADAA-75C1571ADDD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EFD49AB-5A74-4E25-9DEE-1C7A8FB012A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EFD49AB-5A74-4E25-9DEE-1C7A8FB012A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EFD49AB-5A74-4E25-9DEE-1C7A8FB012A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EFD49AB-5A74-4E25-9DEE-1C7A8FB012A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B08A25E1-9A1F-4B40-B67A-438ABBDE0879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B08A25E1-9A1F-4B40-B67A-438ABBDE0879}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B08A25E1-9A1F-4B40-B67A-438ABBDE0879}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B08A25E1-9A1F-4B40-B67A-438ABBDE0879}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D9239D4-5743-4523-AEBC-0E9A6CCF6558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D9239D4-5743-4523-AEBC-0E9A6CCF6558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D9239D4-5743-4523-AEBC-0E9A6CCF6558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D9239D4-5743-4523-AEBC-0E9A6CCF6558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFEA1D2E-2FAE-489C-B355-4EC412B7B1C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFEA1D2E-2FAE-489C-B355-4EC412B7B1C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFEA1D2E-2FAE-489C-B355-4EC412B7B1C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFEA1D2E-2FAE-489C-B355-4EC412B7B1C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {466215E1-E422-4EE1-8C6E-9A97F1D34245}
+	EndGlobalSection
+EndGlobal

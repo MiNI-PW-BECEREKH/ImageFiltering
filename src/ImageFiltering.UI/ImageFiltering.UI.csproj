@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Gu.Wpf.DataGrid2D" Version="0.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ImageFiltering.ConvolutionalFilters\ImageFiltering.ConvolutionFilters.csproj" />
+    <ProjectReference Include="..\ImageFiltering.FunctionFilters\ImageFiltering.FunctionFilters.csproj" />
+  </ItemGroup>
+
+</Project>
