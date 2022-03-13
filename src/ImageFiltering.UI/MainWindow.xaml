@@ -54,11 +54,11 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0">
-                    <Image Name="originalImageCanvas" Stretch="None"></Image>
+                    <Image Name="originalImageCanvas" Stretch="None" ></Image>
                 </Grid>
 
                 <Grid Grid.Column="1">
-                    <Image Name="modifiedImageCanvas" Stretch="None"></Image>
+                    <Image Name="modifiedImageCanvas" Stretch="None" ></Image>
                 </Grid>
 
 
@@ -173,14 +173,14 @@
                             <GroupBox  Header="Kernel" >
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="45*"/>
-                                        <ColumnDefinition Width="45*"/>
-                                        <ColumnDefinition Width="10*"/>
+                                        <ColumnDefinition Width="47*"/>
+                                        <ColumnDefinition Width="47*"/>
+                                        <ColumnDefinition Width="6*"/>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="45*"/>
-                                        <RowDefinition Height="45*"/>
-                                        <RowDefinition Height="10*"/>
+                                        <RowDefinition Height="47*"/>
+                                        <RowDefinition Height="47*"/>
+                                        <RowDefinition Height="6*"/>
                                     </Grid.RowDefinitions>
                                     <DataGrid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" HeadersVisibility="None" Name="kernelDataGrid" dataGrid2D:ItemsSource.Array2D="{Binding }" SelectionUnit="Cell" SelectionMode="Single" CurrentCellChanged="kernelDataGrid_CurrentCellChanged"  MouseDown="kernelDataGrid_MouseDown"  >
                                         <DataGrid.ContextMenu>
@@ -197,10 +197,10 @@
                                     </Button>
 
                                     <Button Name="removeRowButton" Click="removeRowButton_Click" Grid.Column="0" Grid.Row="2">
-                                        <TextBlock Text="-"/>
+                                        <TextBlock   Text="-"/>
                                     </Button>
-                                    <Button Name="addRowButton" Click="addRowButton_Click" Grid.Column="1" Grid.Row="2">
-                                        <TextBlock Text="+"/>
+                                    <Button  Name="addRowButton" Click="addRowButton_Click" Grid.Column="1" Grid.Row="2">
+                                        <TextBlock  Text="+" />
                                     </Button>
 
                                 </Grid>

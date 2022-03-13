@@ -18,6 +18,8 @@ using Color = System.Drawing.Color;
 using System.Xml.Serialization;
 using Gu.Wpf.DataGrid2D;
 using System.ComponentModel;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace ImageFiltering.UI
 {
@@ -188,7 +190,9 @@ namespace ImageFiltering.UI
                 if (applyOnTopCheckBox.IsChecked == true)
                     bitmapToProcess = convoluted;
 
+
                 ShouldEnableCheckBox();
+
 
             }
             catch (Exception ex)
