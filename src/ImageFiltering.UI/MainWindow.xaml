@@ -34,7 +34,7 @@
                     <MenuItem Header="_Open Kernel" Name="openKernel" Click="openKernel_Click" />
                     <MenuItem Header="_Save Kernel" Name="saveKernel" Click="saveKernel_Click"/>
                 </MenuItem>
-                <MenuItem HorizontalAlignment="Left" Header="_Exit">
+                <MenuItem HorizontalAlignment="Left" Name="medianButton" Header="Median" Click="medianButton_Click">
 
                 </MenuItem>
 
@@ -54,11 +54,11 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0">
-                    <Image Name="originalImageCanvas" Stretch="None" ></Image>
+                    <Image Name="originalImageCanvas" Stretch="None" ClipToBounds="True"  ></Image>
                 </Grid>
 
                 <Grid Grid.Column="1">
-                    <Image Name="modifiedImageCanvas" Stretch="None" ></Image>
+                    <Image Name="modifiedImageCanvas" Stretch="None" ClipToBounds="True" ></Image>
                 </Grid>
 
 

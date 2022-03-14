@@ -463,6 +463,27 @@ namespace ImageFiltering.UI
             cellToAnchor.Background = new SolidColorBrush(Colors.Yellow);
         }
 
+        private void medianButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                unDoStack.Push((WriteableBitmap)modifiedImageCanvas.Source);
+                var median = bitmapToProcess.ConvolutionMedian();
+                modifiedImageCanvas.Source = median;
+                if (applyOnTopCheckBox.IsChecked == true)
+                    bitmapToProcess = median;
+
+
+                ShouldEnableCheckBox();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
 
 
 
