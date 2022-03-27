@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using ImageFiltering.Common.Models;
+using ImageFiltering.Dithering;
 using ImageFiltering.Extensions;
 using System.Drawing;
 using System.IO;
@@ -14,7 +15,7 @@ var sharpenKernel = new Kernel(new[,] { { -1, -1, -1 }, { -1, 9, -1 }, { -1, -1,
 var embossKernel = new Kernel(new[,] { { -1, -1, -1 }, { 0, 1, 0 }, { 1, 1, 1 } }, new Point(1, 1));
 
 
-var img = image.Convolution(kernel);
+var img = image.AverageDithering(16);
 //image.ContrastEnhancement(-128);
 SaveImage("lena.png", img);
 

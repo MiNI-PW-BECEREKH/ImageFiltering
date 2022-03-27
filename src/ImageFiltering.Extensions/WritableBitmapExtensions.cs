@@ -107,6 +107,99 @@ namespace ImageFiltering.Extensions
             return Color.FromArgb(pixelColor.A, red, green, blue);
         }
 
+        public static (List<int> RedThresholds, List<int> GreenThresholds, List<int> BlueThresholds, int redRange, int greenRange, int blueRange) GetBitmapThresholds(this WriteableBitmap readBitmap, int k)
+        {
+            if (readBitmap == null)
+                throw new ArgumentNullException("Bitmap is not loaded");
+
+            List<int> RedThresholds = new();
+            List<int> GreenThresholds = new();
+            List<int> BlueThresholds = new();
+            var (redAverage, greenAverage, blueAverage) = readBitmap.GetChannelAverages();
+            //you have to split the quantiles for top and bottom
+            var lowerDeltaRed = redAverage / (k / 2);
+            var lowerDeltaGreen = greenAverage / (k / 2);
+            var lowerDeltaBlue = blueAverage / (k / 2);
+
+            var upperDeltaRed = (255 - redAverage) / (k / 2);
+            var upperDeltaGreen = (255 - greenAverage) / (k / 2);
+            var upperDeltaBlue = (255 - blueAverage) / (k / 2);
+            try
+            {
+                unsafe
+                {
+
+                    for (int quantile = 1; quantile <= k / 2; quantile++)
+                    {
+                        RedThresholds.Add(redAverage - lowerDeltaRed * quantile);
+                        RedThresholds.Add(redAverage + upperDeltaRed * quantile);
+
+                        GreenThresholds.Add(greenAverage - lowerDeltaGreen * quantile);
+                        GreenThresholds.Add(greenAverage + upperDeltaGreen * quantile);
+
+                        BlueThresholds.Add(blueAverage - lowerDeltaBlue * quantile);
+                        BlueThresholds.Add(blueAverage + upperDeltaBlue * quantile);
+                    }
+
+                }
+            }
+            finally
+            {
+                RedThresholds = RedThresholds.Select(x => Math.Clamp(x, 0, 255)).ToList();
+                RedThresholds.Sort();
+                GreenThresholds = GreenThresholds.Select(x => Math.Clamp(x, 0, 255)).ToList();
+                GreenThresholds.Sort();
+                BlueThresholds = BlueThresholds.Select(x => Math.Clamp(x, 0, 255)).ToList();
+                BlueThresholds.Sort();
+            }
+            return (RedThresholds, GreenThresholds, BlueThresholds, lowerDeltaRed, lowerDeltaGreen, lowerDeltaBlue);
+        }
+
+
+
+        public static (int redAverage, int greenAverage, int blueAverage) GetChannelAverages(this WriteableBitmap readBitmap)
+        {
+            if (readBitmap == null)
+                throw new ArgumentNullException("Bitmap is not loaded");
+
+            int redAverage = 0;
+            int greenAverage = 0;
+            int blueAverage = 0;
+            try
+            {
+                readBitmap.Lock();
+                unsafe
+                {
+                    var width = readBitmap.PixelWidth;
+                    var height = readBitmap.PixelHeight;
+
+                    for (int col = 0; col < width; col++)
+                    {
+                        for (int row = 0; row < height; row++)
+                        {
+                            var pixelColor = GetPixel(readBitmap, col, row);
+
+                            redAverage += pixelColor.R;
+                            greenAverage += pixelColor.G;
+                            blueAverage += pixelColor.B;
+
+                        }
+                    }
+
+                    redAverage /= (width * height);
+                    greenAverage /= (width * height);
+                    blueAverage /= (width * height);
+
+                }
+            }
+            finally
+            {
+                readBitmap.Unlock();
+            }
+
+            return (redAverage, greenAverage, blueAverage);
+        }
+
     }
 
 }

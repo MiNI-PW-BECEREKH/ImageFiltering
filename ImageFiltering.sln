@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageFiltering.Console", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageFiltering.Common", "src\ImageFiltering.Common\ImageFiltering.Common.csproj", "{6D9239D4-5743-4523-AEBC-0E9A6CCF6558}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageFiltering.UI", "src\ImageFiltering.UI\ImageFiltering.UI.csproj", "{BFEA1D2E-2FAE-489C-B355-4EC412B7B1C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageFiltering.UI", "src\ImageFiltering.UI\ImageFiltering.UI.csproj", "{BFEA1D2E-2FAE-489C-B355-4EC412B7B1C3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageFiltering.Dithering", "src\ImageFiltering.Dithering\ImageFiltering.Dithering.csproj", "{A7F76D3E-2508-4305-B3C4-A394ED8538EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{BFEA1D2E-2FAE-489C-B355-4EC412B7B1C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFEA1D2E-2FAE-489C-B355-4EC412B7B1C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFEA1D2E-2FAE-489C-B355-4EC412B7B1C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7F76D3E-2508-4305-B3C4-A394ED8538EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7F76D3E-2508-4305-B3C4-A394ED8538EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7F76D3E-2508-4305-B3C4-A394ED8538EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7F76D3E-2508-4305-B3C4-A394ED8538EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
