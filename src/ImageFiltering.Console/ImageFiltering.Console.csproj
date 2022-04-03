@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ImageFiltering.MedianCutQuantization\ImageFiltering.MedianCutQuantization.csproj" />
     <ProjectReference Include="..\ImageFiltering.Common\ImageFiltering.Common.csproj" />
     <ProjectReference Include="..\ImageFiltering.ConvolutionalFilters\ImageFiltering.ConvolutionFilters.csproj" />
     <ProjectReference Include="..\ImageFiltering.Dithering\ImageFiltering.Dithering.csproj" />

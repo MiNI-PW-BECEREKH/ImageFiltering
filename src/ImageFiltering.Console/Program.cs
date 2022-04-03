@@ -2,6 +2,7 @@
 using ImageFiltering.Common.Models;
 using ImageFiltering.Dithering;
 using ImageFiltering.Extensions;
+using ImageFiltering.MedianCutQuantization;
 using System.Drawing;
 using System.IO;
 using System.Windows.Media.Imaging;
@@ -15,7 +16,7 @@ var sharpenKernel = new Kernel(new[,] { { -1, -1, -1 }, { -1, 9, -1 }, { -1, -1,
 var embossKernel = new Kernel(new[,] { { -1, -1, -1 }, { 0, 1, 0 }, { 1, 1, 1 } }, new Point(1, 1));
 
 
-var img = image.AverageDithering(16);
+var img = image.AverageDithering(4,4,4);
 //image.ContrastEnhancement(-128);
 SaveImage("lena.png", img);
 
@@ -23,7 +24,7 @@ SaveImage("lena.png", img);
 
 static WriteableBitmap OpenImage()
 {
-    var bitmap = new BitmapImage(new Uri(@"C:\Users\suhey\Desktop\lena.jpg"));
+    var bitmap = new BitmapImage(new Uri(@"C:\Users\suhey\Desktop\girl.jpg"));
     return new WriteableBitmap(bitmap);
 }
 
