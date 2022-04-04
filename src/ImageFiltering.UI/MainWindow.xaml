@@ -68,8 +68,7 @@
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
@@ -94,169 +93,253 @@
 
                 </Grid>
                 <Grid Grid.Row="1">
-                    <GroupBox Header="Function Filters">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
-                            </Grid.RowDefinitions>
+                    <TabControl>
+                        <TabItem Header="Filters">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="45*"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <GroupBox Header="Function Filters">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="20"/>
+                                            </Grid.RowDefinitions>
 
-                            <!--INVERSION-->
-                            <Button Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Name="inversionButton" Click="inversionButton_Click">
-                                <TextBlock Text="Inversion"/>
-                            </Button>
+                                            <!--INVERSION-->
+                                            <Button Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Name="inversionButton" Click="inversionButton_Click">
+                                                <TextBlock Text="Inversion"/>
+                                            </Button>
 
-                            <!--BRIGTHNESS CORRECTION-->
-                            <Separator Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"/>
+                                            <!--BRIGTHNESS CORRECTION-->
+                                            <Separator Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"/>
 
-                            <Slider Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Minimum="0" Maximum="255" TickFrequency="1" Name="brightnessCorrectionSlider" IsSnapToTickEnabled="True"/>
+                                            <Slider Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Minimum="0" Maximum="255" TickFrequency="1" Name="brightnessCorrectionSlider" IsSnapToTickEnabled="True"/>
 
-                            <Button Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Name="brightnessCorrection" Click="brightnessCorrection_Click">
-                                <TextBlock Text="Brigthness Correction"/>
-                            </Button>
+                                            <Button Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Name="brightnessCorrection" Click="brightnessCorrection_Click">
+                                                <TextBlock Text="Brigthness Correction"/>
+                                            </Button>
 
-                            <TextBox Width="50" Grid.Row="3" Grid.Column="4" Name="brightnessCorrectionTextBox" Text="{Binding Mode=TwoWay, ElementName=brightnessCorrectionSlider,Path=Value, UpdateSourceTrigger=PropertyChanged}" />
-
-
-                            <!--CONTRAST ENHANCEMENT-->
-                            <Separator Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4"/>
-
-                            <Slider Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Minimum="0" Maximum="100"  Name="contrastEnhancementSlider"/>
-
-                            <Button Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3" Name="contrastEnhancement" Click="contrastEnhancement_Click">
-                                <TextBlock Text="Contrast Enhancement"/>
-                            </Button>
-
-                            <TextBox Width="50" Grid.Row="6" Grid.Column="4" Name="contrastEnhancementTextBox" Text="{Binding Mode=TwoWay, ElementName=contrastEnhancementSlider,Path=Value, UpdateSourceTrigger=PropertyChanged}" />
+                                            <TextBox Width="50" Grid.Row="3" Grid.Column="4" Name="brightnessCorrectionTextBox" Text="{Binding Mode=TwoWay, ElementName=brightnessCorrectionSlider,Path=Value, UpdateSourceTrigger=PropertyChanged}" />
 
 
-                            <!--GAMMA CORRECTION-->
-                            <Separator Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4"/>
+                                            <!--CONTRAST ENHANCEMENT-->
+                                            <Separator Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4"/>
 
-                            <Slider Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4" Minimum="0" Maximum="100"  Name="gammaCorrectionSlider"/>
+                                            <Slider Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Minimum="0" Maximum="100"  Name="contrastEnhancementSlider"/>
 
-                            <Button Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="3" Name="gammaCorrectionButton" Click="gammaCorrectionButton_Click">
-                                <TextBlock Text="Gamma Correction"/>
-                            </Button>
+                                            <Button Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3" Name="contrastEnhancement" Click="contrastEnhancement_Click">
+                                                <TextBlock Text="Contrast Enhancement"/>
+                                            </Button>
 
-                            <TextBox Width="50" Grid.Row="9" Grid.Column="4" Name="gammaCorrectionTextBox" Text="{Binding Mode=TwoWay, ElementName=gammaCorrectionSlider,Path=Value, UpdateSourceTrigger=PropertyChanged}" />
+                                            <TextBox Width="50" Grid.Row="6" Grid.Column="4" Name="contrastEnhancementTextBox" Text="{Binding Mode=TwoWay, ElementName=contrastEnhancementSlider,Path=Value, UpdateSourceTrigger=PropertyChanged}" />
 
-                        </Grid>
-                    </GroupBox>
-                </Grid>
-                <Grid Grid.Row="2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="9*"/>
-                        <RowDefinition Height="1*"/>
 
-                    </Grid.RowDefinitions>
-                    <GroupBox Grid.Row="0" Header="Convolution Filters" >
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="6*"/>
-                                <RowDefinition Height="4*"/>
-                            </Grid.RowDefinitions>
-                            <GroupBox  Header="Kernel" >
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="47*"/>
-                                        <ColumnDefinition Width="47*"/>
-                                        <ColumnDefinition Width="6*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="47*"/>
-                                        <RowDefinition Height="47*"/>
-                                        <RowDefinition Height="6*"/>
-                                    </Grid.RowDefinitions>
-                                    <DataGrid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" HeadersVisibility="None" Name="kernelDataGrid" dataGrid2D:ItemsSource.Array2D="{Binding }" SelectionUnit="Cell" SelectionMode="Single" CurrentCellChanged="kernelDataGrid_CurrentCellChanged"  MouseDown="kernelDataGrid_MouseDown"  >
-                                        <DataGrid.ContextMenu>
-                                            <ContextMenu>
-                                                <MenuItem Header="Set Anchor" Name="SetAnchorMenu" Click="SetAnchorMenu_Click"/>
-                                            </ContextMenu>
-                                        </DataGrid.ContextMenu>
-                                    </DataGrid>
-                                    <Button Name="removeColumnButton" Click="removeColumnButton_Click" Grid.Column="2" Grid.Row="0">
-                                        <TextBlock Text="-"/>
-                                    </Button>
-                                    <Button Name="addColumnButton" Click="addColumnButton_Click" Grid.Column="2" Grid.Row="1">
-                                        <TextBlock Text="+"/>
-                                    </Button>
+                                            <!--GAMMA CORRECTION-->
+                                            <Separator Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4"/>
 
-                                    <Button Name="removeRowButton" Click="removeRowButton_Click" Grid.Column="0" Grid.Row="2">
-                                        <TextBlock   Text="-"/>
-                                    </Button>
-                                    <Button  Name="addRowButton" Click="addRowButton_Click" Grid.Column="1" Grid.Row="2">
-                                        <TextBlock  Text="+" />
-                                    </Button>
+                                            <Slider Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4" Minimum="0" Maximum="100"  Name="gammaCorrectionSlider"/>
 
-                                </Grid>
-                            </GroupBox>
-                            <GroupBox Grid.Row="1" Header="Kernel Options">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
-                                    <Grid Grid.Row="0">
-                                        <!--kernel options-->
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="1*"/>
-                                            <RowDefinition Height="1*"/>
+                                            <Button Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="3" Name="gammaCorrectionButton" Click="gammaCorrectionButton_Click">
+                                                <TextBlock Text="Gamma Correction"/>
+                                            </Button>
 
-                                        </Grid.RowDefinitions>
+                                            <TextBox Width="50" Grid.Row="9" Grid.Column="4" Name="gammaCorrectionTextBox" Text="{Binding Mode=TwoWay, ElementName=gammaCorrectionSlider,Path=Value, UpdateSourceTrigger=PropertyChanged}" />
 
-                                        <GroupBox Header="Divisior"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-                                            <Grid>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="1*"/>
-                                                    <ColumnDefinition Width="1*"/>
-                                                </Grid.ColumnDefinitions>
-                                                <TextBox Grid.Column="0" Name="divisorTextBox"  TextChanged="divisorTextBox_TextChanged"/>
-                                                <CheckBox Content="Auto Divisor" Name="divisorCheckBox" HorizontalAlignment="Center" VerticalAlignment="Center"   Grid.Column="1" Checked="divisorCheckBox_Checked" />
-                                            </Grid>
-                                        </GroupBox>
-                                        <GroupBox Header="Offset"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-                                            <Grid>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="8*"/>
-                                                    <ColumnDefinition Width="2*"/>
-                                                </Grid.ColumnDefinitions>
-                                                <Slider Grid.Column="0" Name="offsetSlider" Maximum="255" Minimum="0" TickFrequency="1" IsSnapToTickEnabled="True"  ValueChanged="offsetSlider_ValueChanged"/>
-                                                <TextBox Grid.Column="1" Name="offsetTextBox" Text="{Binding Mode=TwoWay, ElementName=offsetSlider,Path=Value, UpdateSourceTrigger=PropertyChanged}" />
-                                            </Grid>
-                                        </GroupBox>
-
-                                    </Grid>
-                                    <GroupBox Grid.Row="1" Header="Convolution Templates">
-                                        <StackPanel>
-                                            <RadioButton Name="blur" Content="Blur" GroupName="ConvolutionTemplate" Checked="blur_Checked"/>
-                                            <RadioButton Name="gaussianBlur" Content="Gaussian Blur" GroupName="ConvolutionTemplate" Checked="gaussianBlur_Checked"/>
-                                            <RadioButton Name="sharpen"  Content="Sharpen" GroupName="ConvolutionTemplate" Checked="sharpen_Checked"/>
-                                            <RadioButton Name="edgeDetection" Content="Edge Detection" GroupName="ConvolutionTemplate" Checked="edgeDetection_Checked"/>
-                                            <RadioButton Name="emboss" Content="Emboss" GroupName="ConvolutionTemplate" Checked="emboss_Checked"/>
-                                        </StackPanel>
+                                        </Grid>
                                     </GroupBox>
                                 </Grid>
-                            </GroupBox>
-                        </Grid>
-                    </GroupBox>
-                    <Button Grid.Row="1" Name="convolutionApplyButton" Click="convolutionApplyButton_Click">
-                        <TextBlock Text="Apply"/>
-                    </Button>
+                                <Grid Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="15*"/>
+                                        <RowDefinition Height="1*"/>
+
+                                    </Grid.RowDefinitions>
+                                    <GroupBox Grid.Row="0" Header="Convolution Filters" >
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="6*"/>
+                                                <RowDefinition Height="4*"/>
+                                            </Grid.RowDefinitions>
+                                            <GroupBox  Header="Kernel" >
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="47*"/>
+                                                        <ColumnDefinition Width="47*"/>
+                                                        <ColumnDefinition Width="6*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="47*"/>
+                                                        <RowDefinition Height="47*"/>
+                                                        <RowDefinition Height="6*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <DataGrid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" HeadersVisibility="None" Name="kernelDataGrid" dataGrid2D:ItemsSource.Array2D="{Binding }" SelectionUnit="Cell" SelectionMode="Single" CurrentCellChanged="kernelDataGrid_CurrentCellChanged"  MouseDown="kernelDataGrid_MouseDown"  >
+                                                        <DataGrid.ContextMenu>
+                                                            <ContextMenu>
+                                                                <MenuItem Header="Set Anchor" Name="SetAnchorMenu" Click="SetAnchorMenu_Click"/>
+                                                            </ContextMenu>
+                                                        </DataGrid.ContextMenu>
+                                                    </DataGrid>
+                                                    <Button Name="removeColumnButton" Click="removeColumnButton_Click" Grid.Column="2" Grid.Row="0">
+                                                        <TextBlock Text="-"/>
+                                                    </Button>
+                                                    <Button Name="addColumnButton" Click="addColumnButton_Click" Grid.Column="2" Grid.Row="1">
+                                                        <TextBlock Text="+"/>
+                                                    </Button>
+
+                                                    <Button Name="removeRowButton" Click="removeRowButton_Click" Grid.Column="0" Grid.Row="2">
+                                                        <TextBlock   Text="-"/>
+                                                    </Button>
+                                                    <Button  Name="addRowButton" Click="addRowButton_Click" Grid.Column="1" Grid.Row="2">
+                                                        <TextBlock  Text="+" />
+                                                    </Button>
+
+                                                </Grid>
+                                            </GroupBox>
+                                            <GroupBox Grid.Row="1" Header="Kernel Options">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid Grid.Row="0">
+                                                        <!--kernel options-->
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="1*"/>
+                                                            <RowDefinition Height="1*"/>
+
+                                                        </Grid.RowDefinitions>
+
+                                                        <GroupBox Header="Divisior"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                                                            <Grid>
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="1*"/>
+                                                                    <ColumnDefinition Width="1*"/>
+                                                                </Grid.ColumnDefinitions>
+                                                                <TextBox Grid.Column="0" Name="divisorTextBox"  TextChanged="divisorTextBox_TextChanged"/>
+                                                                <CheckBox Content="Auto Divisor" Name="divisorCheckBox" HorizontalAlignment="Center" VerticalAlignment="Center"   Grid.Column="1" Checked="divisorCheckBox_Checked" />
+                                                            </Grid>
+                                                        </GroupBox>
+                                                        <GroupBox Header="Offset"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                                                            <Grid>
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="8*"/>
+                                                                    <ColumnDefinition Width="2*"/>
+                                                                </Grid.ColumnDefinitions>
+                                                                <Slider Grid.Column="0" Name="offsetSlider" Maximum="255" Minimum="0" TickFrequency="1" IsSnapToTickEnabled="True"  ValueChanged="offsetSlider_ValueChanged"/>
+                                                                <TextBox Grid.Column="1" Name="offsetTextBox" Text="{Binding Mode=TwoWay, ElementName=offsetSlider,Path=Value, UpdateSourceTrigger=PropertyChanged}" />
+                                                            </Grid>
+                                                        </GroupBox>
+
+                                                    </Grid>
+                                                    <GroupBox Grid.Row="1" Header="Convolution Templates">
+                                                        <StackPanel>
+                                                            <RadioButton Name="blur" Content="Blur" GroupName="ConvolutionTemplate" Checked="blur_Checked"/>
+                                                            <RadioButton Name="gaussianBlur" Content="Gaussian Blur" GroupName="ConvolutionTemplate" Checked="gaussianBlur_Checked"/>
+                                                            <RadioButton Name="sharpen"  Content="Sharpen" GroupName="ConvolutionTemplate" Checked="sharpen_Checked"/>
+                                                            <RadioButton Name="edgeDetection" Content="Edge Detection" GroupName="ConvolutionTemplate" Checked="edgeDetection_Checked"/>
+                                                            <RadioButton Name="emboss" Content="Emboss" GroupName="ConvolutionTemplate" Checked="emboss_Checked"/>
+                                                        </StackPanel>
+                                                    </GroupBox>
+                                                </Grid>
+                                            </GroupBox>
+                                        </Grid>
+                                    </GroupBox>
+                                    <Button Grid.Row="1" Name="convolutionApplyButton" Click="convolutionApplyButton_Click">
+                                        <TextBlock Text="Apply"/>
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Dithering &amp; Quantization">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+
+                                <GroupBox Header="Average Dithering" Grid.Row="0" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <CheckBox IsChecked="False" Grid.Row="0" Name="grayScaleCheckBox" Unchecked="grayScaleCheckBox_Unchecked" Checked="grayScaleCheckBox_Checked" Content="Convert To Gray"></CheckBox>
+                                        <GroupBox Grid.Row="1" Header="Gray">
+                                            <DockPanel>
+                                                <TextBlock Name="graySliderTextBox" Text="{Binding ElementName=graySlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Width="30" />
+                                                <Slider Name="graySlider" Minimum="2" Maximum="20" TickFrequency="1" IsSnapToTickEnabled="True" DockPanel.Dock="Left"></Slider>
+                                            </DockPanel>
+                                        </GroupBox>
+                                        <GroupBox Grid.Row="2" Header="Red">
+                                            <DockPanel>
+                                                <TextBlock Name="redSliderTextBox" Text="{Binding ElementName=redSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Width="30" />
+                                                <Slider Name="redSlider" Minimum="2" Maximum="20" TickFrequency="1" IsSnapToTickEnabled="True" DockPanel.Dock="Left"></Slider>
+                                            </DockPanel>
+                                        </GroupBox>
+
+                                        <GroupBox Grid.Row="3" Header="Green">
+                                            <DockPanel>
+                                                <TextBlock Name="greenSliderTextBox" Text="{Binding ElementName=greenSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Width="30" />
+                                                <Slider Name="greenSlider" Minimum="2" Maximum="20" TickFrequency="1" IsSnapToTickEnabled="True" DockPanel.Dock="Left"></Slider>
+                                            </DockPanel>
+                                        </GroupBox>
+
+                                        <GroupBox Grid.Row="4" Header="Blue">
+                                            <DockPanel>
+                                                <TextBlock Name="blueSliderTextBox" Text="{Binding ElementName=blueSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Width="30" />
+                                                <Slider Name="blueSlider" Minimum="2" Maximum="20" TickFrequency="1" IsSnapToTickEnabled="True" DockPanel.Dock="Left"></Slider>
+                                            </DockPanel>
+                                        </GroupBox>
+                                        <Button Grid.Row="5" Name="DitheringApply" Click="DitheringApply_Click">Apply</Button>
+                                    </Grid>
+                                </GroupBox>
+
+                                <GroupBox Header="Median Cut Quantization" Grid.Row="1">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <GroupBox Grid.Row="0" Header="Aimed Cuboid Number">
+                                            <DockPanel>
+                                                <TextBlock Name="quantizationSliderTextBox" Text="{Binding ElementName=quantizationSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Width="30" />
+                                                <Slider Name="quantizationSlider" Maximum="128" Ticks="2, 4, 8, 16, 32, 64, 128" IsSnapToTickEnabled="True" DockPanel.Dock="Left"></Slider>
+                                            </DockPanel>
+                                        </GroupBox>
+                                        <Button Grid.Row="1" Name="QuantizationApply" Click="QuantizationApply_Click" >Apply</Button>
+                                    </Grid>
+                                </GroupBox>
+
+                            </Grid>
+                        </TabItem>
+
+                    </TabControl>
+
+
                 </Grid>
             </Grid>
 

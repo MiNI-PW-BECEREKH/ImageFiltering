@@ -20,6 +20,8 @@ using Gu.Wpf.DataGrid2D;
 using System.ComponentModel;
 using System.Threading;
 using System.Windows.Threading;
+using ImageFiltering.Dithering;
+using ImageFiltering.MedianCutQuantization;
 
 namespace ImageFiltering.UI
 {
@@ -54,6 +56,10 @@ namespace ImageFiltering.UI
             offsetSlider.Value = kernelContext.IntensityOffset;
             divisorTextBox.Text = kernelContext.D.ToString();
             divisorCheckBox.IsChecked = true;
+
+            //start application as gray slider disabled
+            //check strides when image is loaded
+            graySlider.IsEnabled = false;
         }
 
         private void LoadImageClick(object sender, RoutedEventArgs e)
@@ -476,6 +482,84 @@ namespace ImageFiltering.UI
 
                 ShouldEnableCheckBox();
 
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void grayScaleCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                unDoStack.Push((WriteableBitmap)modifiedImageCanvas.Source);
+                var gray = bitmapToProcess.GrayScale();
+                modifiedImageCanvas.Source = gray;
+                if (applyOnTopCheckBox.IsChecked == true)
+                    bitmapToProcess = gray;
+
+
+                ShouldEnableCheckBox();
+                graySlider.IsEnabled = true;
+                redSlider.IsEnabled = false;
+                greenSlider.IsEnabled = false;
+                blueSlider.IsEnabled = false;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DitheringApply_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var K = (int)graySlider.Value;
+                var rK = (int)redSlider.Value;
+                var gK = (int)greenSlider.Value;
+                var bK = (int)blueSlider.Value;
+                unDoStack.Push((WriteableBitmap)modifiedImageCanvas.Source);
+                var dithered = bitmapToProcess.AverageDithering(rK,bK,gK,K,(bool)grayScaleCheckBox.IsChecked);
+                modifiedImageCanvas.Source = dithered;
+                if (applyOnTopCheckBox.IsChecked == true)
+                    bitmapToProcess = dithered;
+
+
+                ShouldEnableCheckBox();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void grayScaleCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            graySlider.IsEnabled = false;
+            redSlider.IsEnabled = true;
+            greenSlider.IsEnabled = true;
+            blueSlider.IsEnabled = true;
+        }
+
+        private void QuantizationApply_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var resultingColors = (int)quantizationSlider.Value;
+                unDoStack.Push((WriteableBitmap)modifiedImageCanvas.Source);
+                var quantized = bitmapToProcess.MedianCutQuantization(resultingColors);
+                modifiedImageCanvas.Source = quantized;
+                if (applyOnTopCheckBox.IsChecked == true)
+                    bitmapToProcess = quantized;
+
+
+                ShouldEnableCheckBox();
 
             }
             catch (Exception ex)

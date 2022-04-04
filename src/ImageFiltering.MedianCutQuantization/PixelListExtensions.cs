@@ -15,7 +15,6 @@ namespace ImageFiltering.MedianCutQuantization
     {
         public static List<Color> Divide(this List<Color> list, int currentDepth, int maxDepth)
         {
-            List<Color> result = new List<Color>();
             if (currentDepth == maxDepth)
             {
                 //if we have colors as much as in the resulting image return as it is
@@ -23,14 +22,17 @@ namespace ImageFiltering.MedianCutQuantization
             }
             else if (currentDepth < maxDepth)
             {
+                List<Color> result = new List<Color>();
                 //if we need more divisions to have less colors divide
                 var sorted = list.SortWithChannelCode();
                 var leftHalf = sorted.Take(sorted.Count / 2).ToList();
                 var rightHalf = sorted.Skip(sorted.Count / 2).ToList();
                 result.AddRange(leftHalf.Divide(currentDepth + 1, maxDepth));
                 result.AddRange(rightHalf.Divide(currentDepth + 1, maxDepth));
+                return result;
             }
-            return result;
+            return null;
+
 
         }
 

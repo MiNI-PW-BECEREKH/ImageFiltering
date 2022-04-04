@@ -85,7 +85,7 @@ namespace ImageFiltering.Dithering
                 redIntervals.Add(new Interval());
 
                 redIntervals[i].Min = i * rIntervalSize;
-                redIntervals[i].Max = (i + 1) * rIntervalSize;
+                redIntervals[i].Max = (i + 1) * rIntervalSize + 1;
             }
 
             for (int i = 0; i < actualBlueIntervalCount; i++)
@@ -93,7 +93,7 @@ namespace ImageFiltering.Dithering
                 blueIntervals.Add(new Interval());
 
                 blueIntervals[i].Min = i * bIntervalSize;
-                blueIntervals[i].Max = (i + 1) * bIntervalSize;
+                blueIntervals[i].Max = (i + 1) * bIntervalSize + 1;
             }
 
             for (int i = 0; i < actualGreenIntervalCount; i++)
@@ -102,7 +102,7 @@ namespace ImageFiltering.Dithering
 
 
                 greenIntervals[i].Min = i * gIntervalSize;
-                greenIntervals[i].Max = (i + 1) * gIntervalSize;
+                greenIntervals[i].Max = (i + 1) * gIntervalSize + 1;
             }
 
 

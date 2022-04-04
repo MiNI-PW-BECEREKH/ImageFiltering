@@ -13,7 +13,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ImageFiltering.ConvolutionalFilters\ImageFiltering.ConvolutionFilters.csproj" />
+    <ProjectReference Include="..\ImageFiltering.Dithering\ImageFiltering.Dithering.csproj" />
     <ProjectReference Include="..\ImageFiltering.FunctionFilters\ImageFiltering.FunctionFilters.csproj" />
+    <ProjectReference Include="..\ImageFiltering.MedianCutQuantization\ImageFiltering.MedianCutQuantization.csproj" />
   </ItemGroup>
 
 </Project>

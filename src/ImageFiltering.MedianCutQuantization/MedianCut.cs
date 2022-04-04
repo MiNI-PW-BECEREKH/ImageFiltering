@@ -17,6 +17,7 @@ namespace ImageFiltering.MedianCutQuantization
 
             var listOfPixels = bitmap.ToList();
             var requestedDepth = (int)Math.Sqrt(colorsInResult);
+            //Get Sections that are still in the same list sorted according to cut
             var pixels = listOfPixels.Divide(0,requestedDepth);
             var sizeOfCuboid = pixels.Count / colorsInResult;
             List<Color> colorsForGivenCuboid = new List<Color>();
@@ -24,6 +25,7 @@ namespace ImageFiltering.MedianCutQuantization
             int meanR = 0, meanG = 0, meanB = 0;
             foreach (var pixel in pixels)
             {
+                //Go through cuboids and get centroid 
                 if (counter < sizeOfCuboid - 1)
                 {
                     var temp = pixel;
@@ -71,10 +73,6 @@ namespace ImageFiltering.MedianCutQuantization
             }
             return writeBitmap;
         }
-
-
-
-
 
     }
 }
