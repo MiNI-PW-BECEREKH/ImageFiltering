@@ -317,7 +317,41 @@
                                     </Grid>
                                 </GroupBox>
 
-                                <GroupBox Header="Median Cut Quantization" Grid.Row="1">
+                                <GroupBox Header="Average w/Conversion Dithering" Grid.Row="1" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+
+                                        <GroupBox Grid.Row="0" Header="Y">
+                                            <DockPanel>
+                                                <TextBlock Text="{Binding ElementName=yslider, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Width="30" />
+                                                <Slider Name="yslider"  Minimum="2" Maximum="20" TickFrequency="1" IsSnapToTickEnabled="True" DockPanel.Dock="Left"></Slider>
+                                            </DockPanel>
+                                        </GroupBox>
+
+                                        <GroupBox Grid.Row="1" Header="Cb">
+                                            <DockPanel>
+                                                <TextBlock  Text="{Binding ElementName=CbSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Width="30" />
+                                                <Slider Name="CbSlider"  Minimum="2" Maximum="20" TickFrequency="1" IsSnapToTickEnabled="True" DockPanel.Dock="Left"></Slider>
+                                            </DockPanel>
+                                        </GroupBox>
+
+                                        <GroupBox Grid.Row="2" Header="Cr">
+                                            <DockPanel>
+                                                <TextBlock  Text="{Binding ElementName=CrSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Width="30" />
+                                                <Slider Name="CrSlider" Minimum="2" Maximum="20" TickFrequency="1" IsSnapToTickEnabled="True" DockPanel.Dock="Left"></Slider>
+                                            </DockPanel>
+                                        </GroupBox>
+                                        <Button Grid.Row="3" Name="DitheringConversionApply" Click="DitheringConversionApply_Click" >Apply</Button>
+                                    </Grid>
+                                </GroupBox>
+
+                                <GroupBox Header="Median Cut Quantization" Grid.Row="2">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
@@ -327,7 +361,7 @@
                                         <GroupBox Grid.Row="0" Header="Aimed Cuboid Number">
                                             <DockPanel>
                                                 <TextBlock Name="quantizationSliderTextBox" Text="{Binding ElementName=quantizationSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Width="30" />
-                                                <Slider Name="quantizationSlider" Maximum="128" Ticks="2, 4, 8, 16, 32, 64, 128" IsSnapToTickEnabled="True" DockPanel.Dock="Left"></Slider>
+                                                <Slider Name="quantizationSlider" Minimum="1" Maximum="128" TickFrequency="1" IsSnapToTickEnabled="True" DockPanel.Dock="Left"></Slider>
                                             </DockPanel>
                                         </GroupBox>
                                         <Button Grid.Row="1" Name="QuantizationApply" Click="QuantizationApply_Click" >Apply</Button>

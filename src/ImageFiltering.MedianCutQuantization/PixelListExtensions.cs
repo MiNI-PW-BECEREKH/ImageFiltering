@@ -13,27 +13,35 @@ namespace ImageFiltering.MedianCutQuantization
     }
     public static class PixelListExtensions
     {
-        public static List<Color> Divide(this List<Color> list, int currentDepth, int maxDepth)
+        public static List<Color> DivideAndCentroid(this List<Color> list, int aimedNumberOfColors)
         {
-            if (currentDepth == maxDepth)
+            var result = new List<Color>();
+            Queue<List<Color>> cuboidQ = new();
+            cuboidQ.Enqueue(list);
+            while(cuboidQ.Count < aimedNumberOfColors)
             {
-                //if we have colors as much as in the resulting image return as it is
-                return list;
+                var cuboid = cuboidQ.Dequeue();
+                var sorted = cuboid.SortWithChannelCode();
+                var leftCuboid = sorted.Take(sorted.Count / 2).ToList();
+                var rightCuboid = sorted.Skip(sorted.Count / 2).ToList();
+                cuboidQ.Enqueue(leftCuboid);
+                cuboidQ.Enqueue(rightCuboid);
             }
-            else if (currentDepth < maxDepth)
+            
+            //Find Centroids
+            foreach(var cuboid in cuboidQ)
             {
-                List<Color> result = new List<Color>();
-                //if we need more divisions to have less colors divide
-                var sorted = list.SortWithChannelCode();
-                var leftHalf = sorted.Take(sorted.Count / 2).ToList();
-                var rightHalf = sorted.Skip(sorted.Count / 2).ToList();
-                result.AddRange(leftHalf.Divide(currentDepth + 1, maxDepth));
-                result.AddRange(rightHalf.Divide(currentDepth + 1, maxDepth));
-                return result;
+                int meanR = 0, meanG = 0, meanB = 0;
+                foreach(var pixel in cuboid)
+                {
+                    meanR += pixel.R;
+                    meanG += pixel.G;
+                    meanB += pixel.B;
+                }
+                result.Add(Color.FromArgb(255, meanR/ cuboid.Count, meanG/cuboid.Count, meanB/cuboid.Count));
             }
-            return null;
 
-
+            return result;
         }
 
 

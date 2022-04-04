@@ -524,7 +524,7 @@ namespace ImageFiltering.UI
                 var gK = (int)greenSlider.Value;
                 var bK = (int)blueSlider.Value;
                 unDoStack.Push((WriteableBitmap)modifiedImageCanvas.Source);
-                var dithered = bitmapToProcess.AverageDithering(rK,bK,gK,K,(bool)grayScaleCheckBox.IsChecked);
+                var dithered = bitmapToProcess.AverageDithering(rK, bK, gK, K, (bool)grayScaleCheckBox.IsChecked);
                 modifiedImageCanvas.Source = dithered;
                 if (applyOnTopCheckBox.IsChecked == true)
                     bitmapToProcess = dithered;
@@ -566,6 +566,31 @@ namespace ImageFiltering.UI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void DitheringConversionApply_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                var y = (int)yslider.Value;
+                var Cb = (int)CbSlider.Value;
+                var Cr = (int)CrSlider.Value;
+                unDoStack.Push((WriteableBitmap)modifiedImageCanvas.Source);
+                var dithered = bitmapToProcess.AverageDitheringLAB(y, Cb, Cr, 0, false);
+                modifiedImageCanvas.Source = dithered;
+                if (applyOnTopCheckBox.IsChecked == true)
+                    bitmapToProcess = dithered;
+
+
+                ShouldEnableCheckBox();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
 

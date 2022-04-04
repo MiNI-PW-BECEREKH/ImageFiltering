@@ -38,7 +38,7 @@ namespace ImageFiltering.Extensions
             {
                 Interval interval = rIntervals[i];
 
-                if(pixel.R > interval.Min && pixel.R < interval.Max)
+                if(pixel.R > interval.Min && pixel.R <= interval.Max)
                 {
                     iR = i;
                 }
@@ -48,7 +48,7 @@ namespace ImageFiltering.Extensions
             {
                 Interval interval = gIntervals[i];
 
-                if (pixel.G > interval.Min && pixel.G < interval.Max)
+                if (pixel.G > interval.Min && pixel.G <= interval.Max)
                 {
                     iG = i;
                 }
@@ -58,7 +58,7 @@ namespace ImageFiltering.Extensions
             {
                 Interval interval = bIntervals[i];
 
-                if (pixel.B > interval.Min && pixel.B < interval.Max)
+                if (pixel.B > interval.Min && pixel.B <= interval.Max)
                 {
                     iB = i;
                 }

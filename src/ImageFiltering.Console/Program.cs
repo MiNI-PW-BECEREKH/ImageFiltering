@@ -16,7 +16,7 @@ var sharpenKernel = new Kernel(new[,] { { -1, -1, -1 }, { -1, 9, -1 }, { -1, -1,
 var embossKernel = new Kernel(new[,] { { -1, -1, -1 }, { 0, 1, 0 }, { 1, 1, 1 } }, new Point(1, 1));
 
 
-var img = image.AverageDithering(4,4,4);
+var img = image.AverageDitheringLAB(4,4,4,2,true);
 //image.ContrastEnhancement(-128);
 SaveImage("lena.png", img);
 
